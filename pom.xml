@@ -64,7 +64,22 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>org.example.Main</mainClass>
+                    <executable>java</executable>
+
+                    <arguments>
+                        <argument>--add-exports=java.base/java.lang=ALL-UNNAMED</argument>
+                        <argument>--add-exports=java.desktop/sun.awt=ALL-UNNAMED</argument>
+                        <argument>--add-exports=java.desktop/sun.java2d=ALL-UNNAMED</argument>
+                        <argument>--add-opens=java.desktop/javax.swing=ALL-UNNAMED</argument>
+                        <argument>--add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED</argument>
+                        <argument>-Djava.awt.headless=false</argument>
+                        <argument>-Dsun.awt.noerasebackground=true</argument>
+
+                        <argument>-classpath</argument>
+                        <classpath/>
+
+                        <argument>org.example.Main</argument>
+                    </arguments>
                 </configuration>
             </plugin>
         </plugins>
